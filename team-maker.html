@@ -1,0 +1,48 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team maker</title>
+</head>
+
+<body>
+<div class="container"
+     ng-app="team-maker"
+     ng-controller="TeamMakerCtrl">
+
+    <login-buttons></login-buttons>
+
+    <header>
+        <h1>team-maker</h1>
+        <div ng-if="!$root.currentUser">
+            <span class="need-sign">Sign-in to vote</span>
+        </div>
+        <form ng-if="$root.currentUser" class="new-player" ng-submit="addPlayer(newPlayer); newPlayer='';">
+            <span class="add-player">Add a player:</span>
+            <input ng-model="newPlayer" type="text"
+                   name="text" placeholder="enter new player name" />
+        </form>
+    </header>
+
+    <div class="items" ng-if="$root.currentUser">
+        <div class="item" ng-repeat="player in players" ng-class="{'item-checked': aVotePourLui(player)}">
+            <span class="player-name">{{player.name}}</span>
+            <span class="player-vote">{{player.vote}}</span>
+            <div class="clear"></div>
+            <button class="btnVote" ng-click="vote(player)">vote for him</button>
+            <button class="btnUnVote" ng-click="unVote(player)">cancel vote</button>
+        </div>
+    </div>
+
+    <div class="items" ng-if="!$root.currentUser">
+        <div class="item" ng-repeat="player in players | orderBy:'-vote'">
+            <span class="player-name">{{player.name}}</span>
+            <span class="player-vote">{{player.vote}}</span>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+
+</div>
+
+</body>

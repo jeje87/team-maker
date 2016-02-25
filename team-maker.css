@@ -1,0 +1,66 @@
+/* CSS declarations go here */
+body {
+    margin: 0;
+    background: #fff;
+    font-size: 1.0em;
+    font-family: helvetica, arial, serif;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.item {
+
+    background: white;
+    color: #171e42;
+    padding: 10px;
+    margin: 10px;
+    border:2px solid silver;
+    border-radius: 15px;
+    max-width: 250px;
+    overflow: hidden;
+
+}
+
+.item-checked {
+    border:2px solid #73AD21;
+}
+
+.player-name {
+    margin: 10px;
+    float: left;
+}
+
+.player-vote {
+    margin: 10px;
+    float: right;
+}
+
+.clear {
+    clear:both;
+}
+
+.btnVote {
+    margin: 10px;
+    float: left;
+}
+
+.btnUnVote {
+    margin: 10px;
+    float: left;
+}
+
+
+
+header {
+    margin:20px;
+    text-align: center;
+}
+
+
+header span {
+    margin:5px;
+}
